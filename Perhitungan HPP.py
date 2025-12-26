@@ -1,4 +1,14 @@
-import streamlit as st
+mport streamlit as st
+
+# --- KODE UNTUK MENYEMBUNYIKAN MENU STREAMLIT ---
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 def format_rp(angka):
     return f"Rp {angka:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
@@ -33,3 +43,4 @@ with tab2:
         ue = jadi + (pdp * tingkat)
         biaya_satuan = total_biaya / ue if ue > 0 else 0
         st.info(f"Biaya per Unit: {format_rp(biaya_satuan)}")
+
