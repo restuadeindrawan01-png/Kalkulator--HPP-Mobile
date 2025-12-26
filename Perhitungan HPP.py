@@ -1,4 +1,4 @@
-mport streamlit as st
+import streamlit as st
 
 # --- KODE UNTUK MENYEMBUNYIKAN MENU STREAMLIT ---
 hide_st_style = """
@@ -13,8 +13,8 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 def format_rp(angka):
     return f"Rp {angka:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
-st.set_page_config(page_title="Accounting System 2025", layout="centered")
-st.title("📊 SISTEM AKUNTANSI BIAYA")
+st.set_page_config(page_title="Kalkulator HPP 2025", page_icon="📊", layout="centered")
+st.title("📊 AKUNTANSI BIAYA")
 
 tab1, tab2 = st.tabs(["Job Order Costing", "Process Costing"])
 
@@ -43,4 +43,5 @@ with tab2:
         ue = jadi + (pdp * tingkat)
         biaya_satuan = total_biaya / ue if ue > 0 else 0
         st.info(f"Biaya per Unit: {format_rp(biaya_satuan)}")
+
 
